@@ -1,13 +1,18 @@
+import os
+
 from flask import Flask
 from flask import Response
+
 
 app = Flask(__name__)
 
 
+ENVIRONMENTAL = os.getenv('ENVIRONMENTAL')
+
+
 @app.route('/')
 def index():
-    #return render_template("index.html")
-    return "This is the amazing app EVER, speaking at wdi."
+    return f"This is the amazing app EVER, speaking at wdi {ENVIRONMENTAL} and have github integration."
  
 
 @app.route("/healthz")
